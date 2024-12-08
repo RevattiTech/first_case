@@ -1,0 +1,58 @@
+version: "3.9"
+
+services:
+  database:
+    container_name: "db_test"
+    image: postgres:16.1
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=SSS
+      - POSTGRES_USER=SSS
+      - POSTGRES_DB=SSS
+    ports:
+      - "5432:5432"
+
+#    networks:
+#      - dev-network
+#
+#  backend:
+#    container_name: "backends"
+#    build:
+#      context: ./backend
+#      dockerfile: Dockerfile
+#    ports:
+#      - "8000:8000"
+#    depends_on:
+#      - database
+#    networks:
+#      - dev-network
+#
+#  frontend:
+#    container_name: "frontends"
+#    depends_on:
+#      - database
+#    build:
+#      context: ./frontend
+#      dockerfile: Dockerfile
+#    ports:
+#      - "3000:3000"
+#
+#    networks:
+#      - dev-network
+#
+#
+#  nginx:
+#    container_name: 'nginxs'
+#    build:
+#      context: ./nginx
+#      dockerfile: Dockerfile
+#
+#    restart: always
+#    networks:
+#      - dev-network
+#    ports:
+#      - "80:80"
+#
+#networks:
+#  dev-network:
+#    driver: bridge
